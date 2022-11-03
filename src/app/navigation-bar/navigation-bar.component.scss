@@ -1,13 +1,24 @@
 :host {
+    .nav-wrapper {
+        height: 100%;
+    }
+
     ul {
         list-style-type: none;
-        padding-left: 15px;
+        margin: 0;
+        padding: 0;
 
         li {
             display: flex;
             align-items: center;
             justify-content: start;
-            margin-bottom: 20px;
+            padding: 10px 25px;
+
+            &:hover {
+                background-color: black;
+                color: #f2f2f2;
+                border-radius: 8px;
+            }
         }
     }
 }
