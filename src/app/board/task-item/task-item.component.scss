@@ -1,0 +1,46 @@
+:host {
+    width: 100%;
+
+    .task-item-layout {
+        background-color: white;
+        height: 100px;
+        border-radius: 5px;
+        border: 1px solid #73767a;
+
+        display: grid;
+        grid-template-areas: "header" "desc" "footer";
+        padding: 5px;
+    }
+
+    .task-header {
+        grid-area: "header";
+        font-weight: bold;
+    }
+
+    .task-desc {
+        grid-area: "desc";
+        font-size: 0.8em;
+    }
+
+    .task-footer {
+        grid-area: "footer";
+        display: flex;
+        align-items: center;
+
+        button {
+            background-color: #73767a;
+            border: 1px solid #73767a;
+            border-radius: 25px;
+            color: white;
+            padding: 5px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: white;
+                border: 1px solid #73767a;
+                color: #73767a;
+            }
+        }
+    }
+}
