@@ -1,0 +1,26 @@
+:host {
+    .list-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        height: calc(100% - 10px);
+        padding: 5px;
+
+        .list-header {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .seperator {
+            height: 1px;
+            border-top: 1.5px solid gray;
+            padding-bottom: 5px;
+        }
+
+        .list-items {
+        }
+    }
+}

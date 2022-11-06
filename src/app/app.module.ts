@@ -7,6 +7,7 @@ import { BoardComponent } from './board/board.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { TaskItemComponent } from './board/task-item/task-item.component';
+import { TasksListComponent } from './board/tasks-list/tasks-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TaskItemComponent } from './board/task-item/task-item.component';
     BoardComponent,
     NavigationBarComponent,
     HeaderComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    TasksListComponent
   ],
   imports: [
     BrowserModule,
