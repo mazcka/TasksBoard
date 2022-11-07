@@ -8,6 +8,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HeaderComponent } from './header/header.component';
 import { TaskItemComponent } from './board/task-item/task-item.component';
 import { TasksListComponent } from './board/tasks-list/tasks-list.component';
+import { StoreModule } from '@ngrx/store';
+import { tasksReducer, TasksStateFeatureKey } from './state/tasks.reducer';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TasksListComponent } from './board/tasks-list/tasks-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forFeature(TasksStateFeatureKey, tasksReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -107,5 +107,11 @@
       }
     }
   },
-  "defaultProject": "TasksBoard"
+  "defaultProject": "TasksBoard",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
+  }
 }

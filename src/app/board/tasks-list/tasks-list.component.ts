@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TasksListComponent implements OnInit {
 
   @Input() listType: string = '';
+  // listCount (xx)
 
   constructor() { }
 
