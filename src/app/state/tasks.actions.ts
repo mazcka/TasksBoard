@@ -1,10 +1,16 @@
 import { createAction, props } from '@ngrx/store';
-import { TaskItemStatus, TasksTypesNames } from './tasks.interfaces';
+import { TaskItemStatus, Tasks, TasksState, TasksTypesNames } from './tasks.interfaces';
 
-export const retrievedTasksList = createAction(TasksTypesNames.GET_TASKS);
+export const fetchTasksList = createAction(TasksTypesNames.GET_TASKS);
+
+export const setTasks = createAction(TasksTypesNames.SET_TASKS, props<{ fetchedTasks: Tasks }>())
 
 export const updateTaskStatus = createAction(TasksTypesNames.UPDATE_TASK_STATUS, props<{ newStatus: TaskItemStatus }>());
 
 export const removeTask = createAction(TasksTypesNames.REMOVE_TASK, props<{ taskId: string }>());
 
 export const clearSelectedTask = createAction(TasksTypesNames.CLEAR_SELECTED_TASK);
+
+export const tasksSelector = (state: TasksState) => state.tasks;
+
+export const selectedTask = (state: TasksState) => state.tasks[state.selectedTask as string];

@@ -1,17 +1,31 @@
-import { createReducer, on } from '@ngrx/store';
-import { clearSelectedTask, removeTask, updateTaskStatus } from './tasks.actions';
-import { TaskItem, TasksState } from './tasks.interfaces';
+import { state } from '@angular/animations';
+import { ActionReducerMap, createReducer, on } from '@ngrx/store';
+import { clearSelectedTask, removeTask, setTasks, updateTaskStatus } from './tasks.actions';
+import { TasksState } from './tasks.interfaces';
 
 export const TasksStateFeatureKey = 'tasksState';
 
 export const initialState: TasksState = {
-    tasks: [],
-    selectedTask: {} as TaskItem
+    tasks: {},
+    selectedTask: null
 };
 
 export const tasksReducer = createReducer(
     initialState,
-    on(updateTaskStatus, (state, { newStatus }) => ({ ...state, selectedTask: { ...state.selectedTask, status: newStatus } })),
-    on(removeTask, (state, { taskId }) => ({ ...state, tasks: state.tasks.filter(t => t.id !== taskId), seletedTask: '' })),
-    on(clearSelectedTask, (state) => ({ ...state, selectedTask: {} as TaskItem }))
+    on(setTasks, (state, { fetchedTasks }) => ({ ...state, tasks: fetchedTasks })),
+    on(updateTaskStatus, (state, { newStatus }) => ({ ...state, tasks: { ...state.tasks, [state.selectedTask as string]: { ...state.tasks[state.selectedTask as string], status: newStatus } } })),
+    on(removeTask, (state, { taskId }) => {
+        const newTasks = { ...state.tasks }
+        delete newTasks[taskId];
+        return { ...state, tasks: newTasks, seletedTask: null };
+    }),
+    on(clearSelectedTask, (state) => ({ ...state, selectedTask: null }))
 );
+
+export interface AppState {
+    tasksFeature: TasksState;
+}
+
+export const reducers: ActionReducerMap<AppState, any> = {
+    tasksFeature: tasksReducer
+};
