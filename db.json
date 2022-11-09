@@ -1,19 +1,9 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "json-server",
-            "author": "typicode"
-        }
-    ],
-    "comments": [
-        {
-            "id": 1,
-            "body": "some comment",
-            "postId": 1
-        }
-    ],
-    "profile": {
-        "name": "typicode"
+    "data": {
+      "tasks": [
+        { id: '1', title: 'Item 1', description: 'Desc 1', status: "Todo" },
+        { id: '2', title: 'Item 2', description: 'Desc 2', status: "InProgress" },
+        { id: '3', title: 'Item 3', description: 'Desc 3', status: "Done" }
+      ],
     }
 }
