@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TaskItem } from 'src/app/state/tasks.interfaces';
+import { TasksFacade } from 'src/app/state/tasks.facade';
+import { TaskItem, TaskItemStatus } from 'src/app/state/tasks.interfaces';
 
 @Component({
   selector: 'app-task-item',
@@ -10,8 +11,22 @@ export class TaskItemComponent implements OnInit {
 
   @Input() task: TaskItem = { id: '' };
 
-  constructor() { }
+  selectedTask$ = this.tasksFacade.getSelectedTask();
+
+  constructor(private tasksFacade: TasksFacade) { }
 
   ngOnInit(): void {
+  }
+
+  onSelectTask(): void {
+    this.tasksFacade.setSelectedTask(this.task.id);
+  }
+
+  onTaskItemClick(status: any): void {
+    this.tasksFacade.updateTaskStatus(this.task.id, status);
+  }
+
+  onDeleteTask(): void {
+    this.tasksFacade.removeTask(this.task.id);
   }
 }

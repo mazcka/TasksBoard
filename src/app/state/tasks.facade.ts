@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { currentTaskSelector, tasksSelector } from "./state.selectors";
-import { TaskItem, Tasks, TasksTypesNames } from "./tasks.interfaces";
+import { Actions, setSelectedTask, updateTaskStatus } from "./tasks.actions";
+import { TaskItem, TaskItemStatus, Tasks, TasksTypesNames } from "./tasks.interfaces";
 import { AppState } from "./tasks.reducer";
 
 @Injectable({
@@ -13,6 +14,18 @@ export class TasksFacade {
 
     fetchTasks(): void {
         this.store.dispatch({ type: TasksTypesNames.GET_TASKS });
+    }
+
+    setSelectedTask(taskId: string): void {
+        this.store.dispatch(Actions.setSelectedTask({ taskId }));
+    }
+
+    updateTaskStatus(taskId: string, newStatus: TaskItemStatus): void {
+        this.store.dispatch(Actions.updateTaskStatus({ taskId, newStatus }));
+    }
+
+    removeTask(taskId: string): void {
+        this.store.dispatch(Actions.removeTask({ taskId }));
     }
 
     getTasks(): Observable<Tasks> {

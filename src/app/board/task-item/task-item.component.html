@@ -1,11 +1,18 @@
-<div class="task-item-layout">
-    <div class="task-header">
-        {{ task.title }}
+<div class="task-item-layout" (click)="onSelectTask()" [ngClass]="{selected: task.id == (selectedTask$ | async)?.id }">
+    <div class="task-data">
+        <div class="task-header">
+            {{ task.title }}
+        </div>
+        <div class="task-desc">
+            {{ task.description }}
+        </div>
+        <div class="task-footer">
+            <button *ngIf="task.status != 'Todo'" (click)="onTaskItemClick('Todo')">Set To Do</button>
+            <button *ngIf="task.status != 'InProgress'" (click)="onTaskItemClick('InProgress')">Set In Progress</button>
+            <button *ngIf="task.status != 'Done'" (click)="onTaskItemClick('Done')">Set Done</button>
+        </div>
     </div>
-    <div class="task-desc">
-        {{ task.description }}
-    </div>
-    <div class="task-footer">
-        <button>Details</button>
+    <div class="task-delete" (click)="onDeleteTask()">
+        <img src="assets/delete-24.png">
     </div>
 </div>

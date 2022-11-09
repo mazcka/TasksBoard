@@ -11,11 +11,11 @@ export const tasksReducer = createReducer(
     initialState,
     on(setTasks, (state, { fetchedTasks }) => ({ ...state, tasks: { ...fetchedTasks } })),
     on(setSelectedTask, (state, { taskId }) => ({ ...state, selectedTask: taskId })),
-    on(updateTaskStatus, (state, { newStatus }) => ({ ...state, tasks: { ...state.tasks, [state.selectedTask as string]: { ...state.tasks[state.selectedTask as string], status: newStatus } } })),
+    on(updateTaskStatus, (state, { taskId, newStatus }) => ({ ...state, tasks: { ...state.tasks, [taskId]: { ...state.tasks[taskId], status: newStatus } } })),
     on(removeTask, (state, { taskId }) => {
         const newTasks = { ...state.tasks }
         delete newTasks[taskId];
-        return { ...state, tasks: newTasks, seletedTask: null };
+        return { ...state, tasks: newTasks, selectedTask: null };
     }),
     on(clearSelectedTask, (state) => ({ ...state, selectedTask: null }))
 );

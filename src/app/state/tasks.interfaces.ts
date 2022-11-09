@@ -20,7 +20,7 @@ export enum TaskItemStatus {
 
 export enum TasksTypesNames {
     GET_TASKS = '[Board Page] Fetch all tasks', // handled by effect
-    SET_TASKS = '[Board Page] Set tasks to stire',
+    SET_TASKS = '[Board Page] Set tasks to store',
     SET_SELECTED_TASK = '[Board Page] Set current selected task',
     UPDATE_TASK_STATUS = '[Board Page] Update task status',
     REMOVE_TASK = '[Board Page] Remove task from board',
