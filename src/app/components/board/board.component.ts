@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs/operators';
-import { TasksFacade } from '../state/tasks.facade';
-import { TaskItem, TaskItemStatus } from '../state/tasks.interfaces';
-import { AppState } from '../state/tasks.reducer';
+import { TasksFacade } from 'src/app/state/tasks.facade';
+import { TaskItem, TaskItemStatus } from 'src/app/state/tasks.interfaces';
+import { AppState } from 'src/app/state/tasks.reducer';
 
 @Component({
   selector: 'app-board',
