@@ -1,9 +1,6 @@
-import { state } from '@angular/animations';
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
-import { clearSelectedTask, removeTask, setTasks, updateTaskStatus } from './tasks.actions';
+import { clearSelectedTask, removeTask, setSelectedTask, setTasks, updateTaskStatus } from './tasks.actions';
 import { TasksState } from './tasks.interfaces';
-
-export const TasksStateFeatureKey = 'tasksState';
 
 export const initialState: TasksState = {
     tasks: {},
@@ -12,7 +9,8 @@ export const initialState: TasksState = {
 
 export const tasksReducer = createReducer(
     initialState,
-    on(setTasks, (state, { fetchedTasks }) => ({ ...state, tasks: fetchedTasks })),
+    on(setTasks, (state, { fetchedTasks }) => ({ ...state, tasks: { ...fetchedTasks } })),
+    on(setSelectedTask, (state, { taskId }) => ({ ...state, selectedTask: taskId })),
     on(updateTaskStatus, (state, { newStatus }) => ({ ...state, tasks: { ...state.tasks, [state.selectedTask as string]: { ...state.tasks[state.selectedTask as string], status: newStatus } } })),
     on(removeTask, (state, { taskId }) => {
         const newTasks = { ...state.tasks }
@@ -23,9 +21,9 @@ export const tasksReducer = createReducer(
 );
 
 export interface AppState {
-    tasksFeature: TasksState;
+    tasksState: TasksState;
 }
 
 export const reducers: ActionReducerMap<AppState, any> = {
-    tasksFeature: tasksReducer
+    tasksState: tasksReducer
 };

@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { TaskItemComponent } from './board/task-item/task-item.component';
 import { TasksListComponent } from './board/tasks-list/tasks-list.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, tasksReducer, TasksStateFeatureKey } from './state/tasks.reducer';
+import { reducers } from './state/tasks.reducer';
 import { TasksEffects } from './state/tasks.effect';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  serverAdress: 'https://my-json-server.typicode.com/mazcka/TasksBoard'
 };

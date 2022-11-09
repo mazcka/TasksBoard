@@ -1,22 +1,25 @@
 import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { tasksSelector } from "./tasks.actions";
-import { Tasks, TasksState, TasksTypesNames } from "./tasks.interfaces";
+import { currentTaskSelector, tasksSelector } from "./tasks.actions";
+import { TaskItem, Tasks, TasksTypesNames } from "./tasks.interfaces";
+import { AppState } from "./tasks.reducer";
 
 @Injectable({
     providedIn: 'root'
 })
 export class TasksFacade {
-    constructor(private store: Store<TasksState>) { }
+    constructor(private store: Store<AppState>) { }
 
     fetchTasks(): void {
-        console.log('fetchTasks');
         this.store.dispatch({ type: TasksTypesNames.GET_TASKS });
     }
 
     getTasks(): Observable<Tasks> {
-        console.log('getTasks');
         return this.store.pipe(select(tasksSelector));
+    }
+
+    getSelectedTask(): Observable<TaskItem> {
+        return this.store.pipe(select(currentTaskSelector));
     }
 }
