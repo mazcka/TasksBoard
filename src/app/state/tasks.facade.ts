@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { currentTaskSelector, tasksSelector } from "./tasks.actions";
+import { currentTaskSelector, tasksSelector } from "./state.selectors";
 import { TaskItem, Tasks, TasksTypesNames } from "./tasks.interfaces";
 import { AppState } from "./tasks.reducer";
 

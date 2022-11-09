@@ -12,15 +12,17 @@
             display: flex;
             align-items: center;
             font-weight: bold;
+
+            span {
+                padding-left: 7px;
+                font-size: 0.7em;
+            }
         }
 
         .seperator {
             height: 1px;
             border-top: 1.5px solid gray;
             padding-bottom: 5px;
-        }
-
-        .list-items {
         }
     }
 }

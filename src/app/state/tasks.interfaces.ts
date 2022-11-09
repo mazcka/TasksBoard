@@ -7,15 +7,15 @@ export type Tasks = { [id: string]: TaskItem; };
 
 export interface TaskItem {
     id: string;
-    title: string;
-    description: string;
-    status: TaskItemStatus;
+    title?: string;
+    description?: string;
+    status?: TaskItemStatus;
 }
 
 export enum TaskItemStatus {
-    Todo,
-    InProgress,
-    Done
+    Todo = 'Todo',
+    InProgress = 'InProgress',
+    Done = 'Done'
 }
 
 export enum TasksTypesNames {

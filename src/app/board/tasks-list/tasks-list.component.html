@@ -1,5 +1,12 @@
 <div class="list-container">
-    <div class="list-header">{{ listType }}</div>
+    <div class="list-header">
+        {{ listType }}
+        <span>({{ taskList.length }})</span>
+    </div>
     <div class="seperator"></div>
-    <div class="list-items"><app-task-item></app-task-item></div>
+    <div>
+        <app-task-item *ngFor="let item of taskList" [task]="item">
+
+        </app-task-item>
+    </div>
 </div>

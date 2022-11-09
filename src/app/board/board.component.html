@@ -1,5 +1,5 @@
 <div class="board-layout">
-    <app-tasks-list [listType]="'To Do'"></app-tasks-list>
-    <app-tasks-list [listType]="'In Progress'"></app-tasks-list>
-    <app-tasks-list [listType]="'Done'"></app-tasks-list>
+    <app-tasks-list [listType]="'To Do'" [taskList]="todoTasks"></app-tasks-list>
+    <app-tasks-list [listType]="'In Progress'" [taskList]="inProgressTasks"></app-tasks-list>
+    <app-tasks-list [listType]="'Done'" [taskList]="doneTasks"></app-tasks-list>
 </div>

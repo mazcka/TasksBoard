@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TaskItem } from 'src/app/state/tasks.interfaces';
 
 @Component({
   selector: 'app-tasks-list',
@@ -8,11 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TasksListComponent implements OnInit {
 
   @Input() listType: string = '';
-  // listCount (xx)
+  @Input() taskList: TaskItem[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
