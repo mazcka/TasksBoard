@@ -1,0 +1,31 @@
+:host {
+    .about-container {
+        display: grid;
+        grid-template-areas: "image-wrapper content";
+        grid-template-columns: 320px 1fr;
+        padding-top: 70px;
+    }
+
+    .content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding-left: 15px;
+
+        button {
+            width: 110px;
+        }
+
+        h1 {
+            height: auto;
+        }
+    }
+
+    .image-wrapper {
+        grid-area: image-wrapper;
+        border: 2px solid #f2f2f2;
+        border-radius: 5px;
+        width: 320px;
+    }
+}

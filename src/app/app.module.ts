@@ -15,6 +15,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BoardComponent } from './components/board/board.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BoardComponent } from './components/board/board.component';
     NavigationBarComponent,
     HeaderComponent,
     TaskItemComponent,
-    TasksListComponent
+    TasksListComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

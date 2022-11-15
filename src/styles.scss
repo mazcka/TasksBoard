@@ -28,6 +28,23 @@ body {
 body {
     margin: 0;
     padding: 40px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "Oswald", sans-serif;
     font-size: 18px;
+
+    button {
+        background-color: #73767a;
+        border: 1px solid #73767a;
+        border-radius: 25px;
+        color: white;
+        padding: 6px;
+        margin-right: 8px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: white;
+            border: 1px solid #73767a;
+            color: #73767a;
+        }
+    }
 }
